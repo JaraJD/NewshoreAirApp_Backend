@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewshoreAir.Business.Entities.Common
 {
-	public  class BaseDomainModel
+	public abstract class BaseDomainModel
 	{
 		public string? Origin { get; set; }
 

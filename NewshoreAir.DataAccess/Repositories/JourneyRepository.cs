@@ -13,19 +13,19 @@ namespace NewshoreAir.DataAccess.Repositories
 			_httpClient = httpClient;
 		}
 
-		public async Task<IReadOnlyList<Route>> GetAllAsync()
+		public async Task<IEnumerable<Route>> GetAllAsync()
 		{
-			// Realizar la solicitud HTTP a la API de vuelos y obtener la respuesta
-			var response = await _httpClient.GetAsync("https://recruiting-api.newshore.es/api/flights/0");
+			var response = await _httpClient.GetAsync("https://recruiting-api.newshore.es/api/flights/1");
 
 			if (!response.IsSuccessStatusCode)
 			{
-				// Manejar el error de acuerdo a los requisitos del sistema
+				// Manejo de error
 			}
 
 			var content = await response.Content.ReadAsStringAsync();
 			var routesApiData = JsonConvert.DeserializeObject<IEnumerable<Route>>(content);
-			return (IReadOnlyList<Route>)routesApiData;
+
+			return routesApiData;
 		}
 	}
 }

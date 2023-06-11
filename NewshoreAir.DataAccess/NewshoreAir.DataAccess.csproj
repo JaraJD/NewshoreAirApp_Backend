@@ -14,8 +14,4 @@
     <ProjectReference Include="..\NewshoreAir.Application\NewshoreAir.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="API\" />
-  </ItemGroup>
-
 </Project>

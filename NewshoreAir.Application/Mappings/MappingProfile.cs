@@ -10,6 +10,7 @@ namespace NewshoreAir.Application.Mappings
 		public MappingProfile()
 		{
 			CreateMap<Route, JourneyVm>();
+			CreateMap<Journey, JourneyVm>();
 			CreateMap<Route, RoutesVm>();
 		}
 	}

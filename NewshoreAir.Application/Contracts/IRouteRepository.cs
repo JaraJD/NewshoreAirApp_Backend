@@ -5,6 +5,6 @@ namespace NewshoreAir.Application.Contracts
 {
 	public interface IRouteRepository
 	{
-		Task<IReadOnlyList<Route>> GetAllAsync();
+		Task<IEnumerable<Route>> GetAllAsync();
 	}
 }

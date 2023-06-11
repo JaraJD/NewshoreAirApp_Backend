@@ -8,10 +8,13 @@ namespace NewshoreAir.Application.Features.Routes.Queries.GetJourney
 
 		public string? _Destination { get; set; }
 
-		public GetJourneyQuery(string origin, string destination)
+		public int _NumberRoutes { get; set; }
+
+		public GetJourneyQuery(string origin, string destination, int numberRoutes)
 		{
 			_Origin = origin ?? throw new ArgumentNullException(nameof(origin));
 			_Destination = destination ?? throw new ArgumentNullException(nameof(destination));
+			_NumberRoutes = numberRoutes;
 		}
 	}
 }

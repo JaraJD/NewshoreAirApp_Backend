@@ -17,11 +17,11 @@ namespace NewshoreAir.API.Controllers
 			_mediator = mediator;
 		}
 
-		[HttpGet("Journey/{origin}/{destination}", Name = "GetJourney")]
+		[HttpGet("Journey/{origin}/{destination}/{limit}", Name = "GetJourney")]
 		[ProducesResponseType(typeof(JourneyVm), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult<JourneyVm>> GetJourney(string origin, string destination)
+		public async Task<ActionResult<JourneyVm>> GetJourney(string origin, string destination, int limit)
 		{
-			var query = new GetJourneyQuery(origin, destination);
+			var query = new GetJourneyQuery(origin, destination, limit);
 			var journey = await _mediator.Send(query);
 			return Ok(journey);
 		}

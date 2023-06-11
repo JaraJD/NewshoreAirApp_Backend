@@ -87,6 +87,11 @@ namespace NewshoreAir.Application.Features.Routes.Queries.GetJourney
 
 			var result = CalculateJourney(request._Origin, request._Destination);
 
+			if(result.Flights.Count > request._NumberRoutes)
+			{
+				throw new Exception("The number of flights exceeds the limit.");
+			}
+
 			if(result == null)
 			{
 				throw new ArgumentNullException("No available routes found");

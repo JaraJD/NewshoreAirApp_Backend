@@ -3,7 +3,8 @@ using NewshoreAir.Business.Entities;
 
 namespace NewshoreAir.Application.Contracts
 {
-	public interface IRouteRepository : IAsyncRepository<Route>
+	public interface IRouteRepository
 	{
+		Task<IReadOnlyList<Route>> GetAllAsync();
 	}
 }

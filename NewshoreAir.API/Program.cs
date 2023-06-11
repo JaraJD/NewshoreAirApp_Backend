@@ -1,3 +1,4 @@
+using FinancialGoal.Infrastructure;
 using NewshoreAir.Application;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddInfrastructureServices();
+builder.Services.AddHttpClient();
 builder.Services.AddAplicationServices();
 
 var app = builder.Build();

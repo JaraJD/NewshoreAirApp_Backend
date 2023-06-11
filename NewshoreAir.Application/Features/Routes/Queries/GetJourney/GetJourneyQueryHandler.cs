@@ -5,7 +5,7 @@ using NewshoreAir.Application.Features.Routes.Queries.GetRoutesList;
 
 namespace NewshoreAir.Application.Features.Routes.Queries.GetJourney
 {
-	public class GetJourneyQueryHandler : IRequestHandler<GetJourneyQuery, List<JourneyVm>>
+	public class GetJourneyQueryHandler : IRequestHandler<GetJourneyQuery, JourneyVm>
 	{
 		private readonly IRouteRepository _routesRepository;
 		private readonly IMapper _mapper;
@@ -16,11 +16,13 @@ namespace NewshoreAir.Application.Features.Routes.Queries.GetJourney
 			_mapper = mapper;
 		}
 
-		public async Task<List<JourneyVm>> Handle(GetJourneyQuery request, CancellationToken cancellationToken)
+		public async Task<JourneyVm> Handle(GetJourneyQuery request, CancellationToken cancellationToken)
 		{
 			var routesList = await _routesRepository.GetAllAsync();
 
-			return _mapper.Map<List<JourneyVm>>(routesList);
+
+
+			return _mapper.Map<JourneyVm>(routesList);
 		}
 	}
 }

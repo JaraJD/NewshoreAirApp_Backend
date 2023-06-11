@@ -2,7 +2,7 @@
 
 namespace NewshoreAir.Application.Features.Routes.Queries.GetJourney
 {
-	public class GetJourneyQuery : IRequest<List<JourneyVm>>
+	public class GetJourneyQuery : IRequest<JourneyVm>
 	{
 		public string? _Origin { get; set; }
 

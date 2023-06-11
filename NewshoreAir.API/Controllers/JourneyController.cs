@@ -19,7 +19,7 @@ namespace NewshoreAir.API.Controllers
 
 		[HttpGet("Journey/{origin}/{destination}", Name = "GetJourney")]
 		[ProducesResponseType(typeof(JourneyVm), (int)HttpStatusCode.OK)]
-		public async Task<ActionResult<JourneyVm>> GetTargetSavingBySUser(string origin, string destination)
+		public async Task<ActionResult<JourneyVm>> GetJourney(string origin, string destination)
 		{
 			var query = new GetJourneyQuery(origin, destination);
 			var journey = await _mediator.Send(query);

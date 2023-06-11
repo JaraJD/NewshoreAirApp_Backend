@@ -1,5 +1,4 @@
-﻿using NewshoreAir.Application.Contracts.DataAccess;
-using NewshoreAir.Business.Entities;
+﻿using NewshoreAir.Business.Entities;
 
 namespace NewshoreAir.Application.Contracts
 {

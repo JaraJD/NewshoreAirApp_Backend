@@ -1,4 +1,5 @@
 using FinancialGoal.Infrastructure;
+using NewshoreAir.API.Middlewares;
 using NewshoreAir.Application;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,7 +27,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 app.MapControllers();
+
+app.UseMiddleware<ErrorHandleMiddleware>();
 
 app.Run();

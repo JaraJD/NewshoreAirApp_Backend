@@ -19,7 +19,7 @@ namespace NewshoreAir.DataAccess.Repositories
 
 			if (!response.IsSuccessStatusCode)
 			{
-				// Manejo de error
+				throw new Exception($"Failed to get routes. status code: {response.StatusCode}");
 			}
 
 			var content = await response.Content.ReadAsStringAsync();

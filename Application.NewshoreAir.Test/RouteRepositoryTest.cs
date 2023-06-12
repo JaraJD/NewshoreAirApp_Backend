@@ -25,6 +25,7 @@ namespace Application.NewshoreAir.Test
 			// Arrange
 			var origin = "MZL";
 			var destination = "BCN";
+			var limit = 4;
 			var routesList = new List<Route>
 			{
 				new Route
@@ -96,7 +97,7 @@ namespace Application.NewshoreAir.Test
 			_routeRepositoryMock.Setup(r => r.GetAllAsync()).ReturnsAsync(routesList);
 			_mapperMock.Setup(m => m.Map<JourneyVm>(It.IsAny<Journey>())).Returns(expectedJourney);
 
-			var query = new GetJourneyQuery(origin, destination);
+			var query = new GetJourneyQuery(origin, destination, limit);
 
 			// Act
 			var result = await _handler.Handle(query, CancellationToken.None);
@@ -128,11 +129,12 @@ namespace Application.NewshoreAir.Test
 			// Arrange
 			var origin = "Origin";
 			var destination = "Destination";
+			var limit = 4;
 			var routesList = new List<Route>(); // Empty route list
 
 			_routeRepositoryMock.Setup(r => r.GetAllAsync()).ReturnsAsync(routesList);
 
-			var query = new GetJourneyQuery(origin, destination);
+			var query = new GetJourneyQuery(origin, destination, limit);
 
 			// Act & Assert
 			await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(query, CancellationToken.None));

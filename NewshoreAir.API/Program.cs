@@ -2,7 +2,20 @@ using FinancialGoal.Infrastructure;
 using NewshoreAir.API.Middlewares;
 using NewshoreAir.Application;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(name: MyAllowSpecificOrigins,
+					  policy =>
+					  {
+						  policy.WithOrigins("http://localhost:4200")
+							.SetIsOriginAllowedToAllowWildcardSubdomains()
+							.AllowAnyHeader()
+							.AllowAnyMethod();
+					  });
+});
 
 // Add services to the container.
 
@@ -25,6 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 app.MapControllers();

@@ -6,7 +6,7 @@ using System.Net;
 
 namespace NewshoreAir.API.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/")]
 	[ApiController]
 	public class JourneyController : ControllerBase
 	{

@@ -8,6 +8,8 @@ In this application we have implemented the multiple routes level where the user
 
 To run the project, clone the repository or download the files, go to the NewshoreAir.API folder where the NewshoreAir.Application.csproj file is located and execute the command [dotnet run] or if it is not located in the specified path you can execute the command [dotnet run --project (path of the .csproj file)].
 
+https://newshoreairapideploy.azurewebsites.net/swagger/index.html
+
 ## Project and architecture based on:
 
 [Clean architecture (N-Layers)](https://github.com/JaraJD/NewshoreAirApp_Backend/assets/93845990/d0eceb53-81fd-4e8c-922b-f112a8314196)
